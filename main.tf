@@ -1,11 +1,11 @@
-provider "sampleclassis" {
+provider "redait" {
   url = "http://localhost:8090"
   email = "test@test.com"
   password = "qwerpoiu"
 }
 
 
-resource "sampleclassis_aws_spot_group" "test" {
+resource "redait_aws_spot_group" "test" {
   group_name = "what"
   desired_qty = "1"
   region = "us-west-2"

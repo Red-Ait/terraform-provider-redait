@@ -3,7 +3,7 @@ package classis
 import (
 	"github.com/hashicorp/terraform/helper/schema"
 	"github.com/hashicorp/terraform/terraform"
-	"github.com/spaceapegames/redait-provder/provider/api/client"
+	"github.com/Red-Ait/terraform-provider-redait/provider/api/client"
 )
 
 func Provider() terraform.ResourceProvider {
