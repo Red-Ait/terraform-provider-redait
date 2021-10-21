@@ -1,8 +1,11 @@
 package main
 
 import (
-	"github.com/hashicorp/terraform/plugin"
-	"github.com/spaceapegames/redait-provder/provider"
+	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
+	"github.com/hashicorp/terraform-plugin-sdk/v2/plugin"
+  
+	"terraform-provider-hashicups/hashicups"
+	"github.com/red-ait/redait-provder/provider"
 )
 
 func main() {

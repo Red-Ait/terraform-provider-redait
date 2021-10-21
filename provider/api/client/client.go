@@ -20,6 +20,7 @@ func NewClientWith(url string, username string, password string) (*Client, error
 	var netClient = &http.Client{
 		Timeout: time.Second * 10,
 	}
+/*
 	login := Login{
 		EmailAddress: username,
 		Password:     password,
@@ -47,6 +48,7 @@ func NewClientWith(url string, username string, password string) (*Client, error
 	if err != nil {
 		return nil, err
 	}
+*/
 	return &Client{netClient, url, loginResponse.Token}, nil
 }
 
@@ -58,12 +60,12 @@ func (c *Client) CreateSpotGroup(spotGroup SpotGroup) (string, error) {
 	spotBytes, _ := json.Marshal(a)
 	spotReader := bytes.NewReader(spotBytes)
 
-	req, err := http.NewRequest("POST", c.base+"/methods/sgUpsert", spotReader)
+	req, err := http.NewRequest("POST", c.base+"/api/student", spotReader)
 	if err != nil {
 		return "", err
 	}
 	req.Header.Set("Content-Type", "application/json")
-	req.Header.Set("Authorization", "Bearer "+c.token)
+//	req.Header.Set("Authorization", "Bearer "+c.token)
 	response, err := c.client.Do(req)
 
 
@@ -79,7 +81,7 @@ func(c *Client) DeleteSpotGroup(groupId string) error {
 		return err
 	}
 	req.Header.Set("Content-Type", "application/json")
-	req.Header.Set("Authorization", "Bearer "+c.token)
+//	req.Header.Set("Authorization", "Bearer "+c.token)
 	response, deleteError := c.client.Do(req)
 	if response.StatusCode == 400 {
 		return errors.New("Sorry but the group must be stopped before it's removed")
